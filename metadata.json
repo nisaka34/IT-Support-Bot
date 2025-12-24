@@ -1,0 +1,5 @@
+{
+  "name": "IT Support Knowledge Bot",
+  "description": "An AI-powered IT support assistant that answers questions based strictly on a provided knowledge base.",
+  "requestFramePermissions": []
+}
