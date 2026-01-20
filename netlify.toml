@@ -1,0 +1,20 @@
+
+[build]
+  # Runs the Vite build process
+  command = "npm run build"
+  # Deploys the generated site from the 'dist' folder
+  publish = "dist"
+
+[build.environment]
+  # Ensures a modern Node environment
+  NODE_VERSION = "20"
+
+[[redirects]]
+  # Redirects all requests to index.html for SPA routing (fixes 404 on refresh)
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[template.environment]
+  # Reminder to set the API_KEY in the Netlify Dashboard settings
+  API_KEY = "Your Gemini API Key"
