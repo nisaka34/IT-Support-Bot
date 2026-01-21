@@ -53,7 +53,7 @@ export const initializeChat = (knowledgeBaseContent: string, lang: Language = 'e
     `\n${knowledgeBaseContent}`;
 
   chatSession = ai.chats.create({
-    model: 'gemini-2.0-flash',
+    model: 'gemini-1.5-flash',
     config: {
       systemInstruction: fullSystemInstruction,
       temperature: 0.1,
