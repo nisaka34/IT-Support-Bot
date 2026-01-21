@@ -41,7 +41,7 @@ const tools: { functionDeclarations: FunctionDeclaration[] }[] = [{
 }];
 
 export const initializeChat = (knowledgeBaseContent: string, lang: Language = 'en') => {
-  const apiKey = process.env.API_KEY;
+  const apiKey = import.meta.env.VITE_API_KEY;
   if (!apiKey) return;
 
   const ai = new GoogleGenAI({ apiKey });
@@ -53,7 +53,7 @@ export const initializeChat = (knowledgeBaseContent: string, lang: Language = 'e
     `\n${knowledgeBaseContent}`;
 
   chatSession = ai.chats.create({
-    model: 'gemini-3-flash-preview',
+    model: 'gemini-1.5-flash',
     config: {
       systemInstruction: fullSystemInstruction,
       temperature: 0.1,
@@ -141,7 +141,7 @@ export const sendMessageStream = async function* (message: string) {
 };
 
 export const analyzeConversation = async (messages: Message[]) => {
-  const apiKey = process.env.API_KEY;
+  const apiKey = import.meta.env.VITE_API_KEY;
   if (!apiKey) throw new Error("API Key is missing");
 
   const ai = new GoogleGenAI({ apiKey });
